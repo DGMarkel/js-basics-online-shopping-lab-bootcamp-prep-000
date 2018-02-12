@@ -51,16 +51,18 @@ function total() {
 }
 
 function removeFromCart(item) {
-  let i = -1;
-  while (i < cart.length) {
-    i++;
+  let found = false
+  for (let i = 0; i < cart.length; i++) {
     if (item === Object.keys(cart[i])[0]) {
+      found = true;
       cart.splice(i, 1);
       return cart;
-     } else {
-       console.log('That item is not in your cart.');
-       return cart;}
+     }
   }
+  if (!found) {
+  console.log('That item is not in your cart.');
+  return cart;
+}
 }
 
 
